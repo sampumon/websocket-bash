@@ -1,11 +1,21 @@
-A websocket server for "BASH".
+A WebSocket server for "BASH".
 
-Usage: ncat -l -p 1337 -e echo.sh
+Usage: ncat -l [-k] -p 1337 -e echo.sh  (or install as an CGI)
 
-Right now it's just a (broken) echo server, 
-since I don't at all feel like implementing the 
-framing mechanism from latest (final?) websocket standard.
+Currently it's just a (broken) echo server, since I don't at all feel like
+implementing the framing mechanism from latest (final) WebSocket standard.
+And it's broken, since we echo back masked frames, whereas standard[1] says:
 
-http://tools.ietf.org/html/rfc6455
+   ... A server MUST NOT mask any frames that it sends to
+   the client.  A client MUST close a connection if it detects a masked
+   frame.  (5.1. Overview)
 
-Works in Google Chrome 16.
+However, both tested browsers accept masked frames.
+
+Should work in Google Chrome 14+, Firefox 7+ and IE 10+.
+Tested to work in Chrome 16 and Firefox 9.
+
+[1] http://tools.ietf.org/html/rfc6455
+
+Sloshy winter greetings from Lauttasaari,
+Sampumon

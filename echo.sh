@@ -1,13 +1,6 @@
 #!/bin/bash
-# A websocket server for "BASH"
-# Usage: ncat -l -p 1337 -e echo.sh
-#
-# Well, right now it's just a (broken) echo server, 
-# since I don't at all feel like implementing the 
-# framing mechanism from latest (final?) websocket standard.
-# http://tools.ietf.org/html/rfc6455
-#
-# Works in Google Chrome 16.
+# A websocket echo server for "BASH"
+# Usage: ncat -l[k] -p 1337 -e echo.sh
 
 # rfc 6455 websocket version
 our_ver=13
